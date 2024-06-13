@@ -11,7 +11,7 @@ const useRequest = (latitude, longitude) => {
             elemTimeZone.textContent = `Временная зона, в которой находится пользователь: ${result.timezone}`;
             elemTimeLocation.textContent = `Местные дата и время: ${result.date_time}`;
         })
-        .catch(() => {
+        .catch((error) => {
             console.log(error);
         });
 };
@@ -35,7 +35,7 @@ function getPosition() {
             elemTimeLocation.textContent = '';
             reject(error);
         };
-        
+
         navigator.geolocation.getCurrentPosition(success, error);
     });
 }
