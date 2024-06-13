@@ -14,7 +14,7 @@ const useRequest = (latitude, longitude) => {
         .catch(() => {
             console.log(error);
         });
-}
+};
 
 function getPosition() {
     return new Promise((resolve, reject) => {
@@ -28,13 +28,14 @@ function getPosition() {
             coords.latitude = position.coords.latitude;
             coords.longitude = position.coords.longitude;
             resolve(coords);
-        }
+        };
 
         const error = (error) => {
             elemTimeZone.textContent = 'Информация о местоположении недоступна';
             elemTimeLocation.textContent = '';
             reject(error);
-        }
+        };
+        
         navigator.geolocation.getCurrentPosition(success, error);
     });
 }
